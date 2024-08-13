@@ -35,3 +35,4 @@ Non-Functional Requirements: Usability, performance, security, scalability, main
 The software follows a client-server architecture with the front end using React.js, backend with Node.js and Express.js, and MongoDB for data storage. Secure APIs facilitate communication between the client and server.
 
 <img src="./public/1.png" alt="image">;
+<img src="./public/2.png" alt="image">;
