@@ -14,19 +14,25 @@ const Header = ({ isLoggedIn, setIsLoggedIn }) => {
       <div className="logo">BitHack's</div>
       <div className="link">
         <li>
-          <a href="#about">About</a>
+          <Link to="/about"><a>About</a></Link>
         </li>
         <li>
-          <a href="#track">Tracks</a>
+          <Link to="/tracks"><a>Tracks</a></Link>
         </li>
         <li>
-          <a href="#time">Timeline</a>
+        <Link to="/timeline">
+          <a>Timeline</a>
+          </Link>
         </li>
         <li>
-          <a href="#faq">FAQ'S</a>
+        <Link to="/faq">
+          <a>FAQ'S</a>
+          </Link>
         </li>
         <li>
-          <a href="#contact">Contact us</a>
+        <Link to="/contact">
+          <a>Contact us</a>
+          </Link>
         </li>
         <li>
           {isLoggedIn ? (

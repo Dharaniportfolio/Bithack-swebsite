@@ -10,12 +10,20 @@ import Domain from "../pages/domain";
 import ProblemStatements from "./problemstatement";
 import ProblemDetail from "./problemdetail";
 import RegistrationPage from "./registration page";
+import { RegistrationProvider } from "./registrationcontext";
+
 
 function Home({ isLoggedIn, setIsLoggedIn }) {
   return (
+    <RegistrationProvider>
     <div className="App">
       <Header isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn} />
       <Routes>
+        <Route path="/about" element={<About />} />
+        <Route path="/tracks" element={<Tracks/>} />
+        <Route path="/timeline" element={<Timeline/>} />
+        <Route path="/faq" element={<Faq/>} />
+        <Route path="/contact" element={<Contact/>} />
         <Route path="/domain" element={<Domain />} />
         <Route path="/login" element={<Login setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/" element={<Content />} />
@@ -24,6 +32,7 @@ function Home({ isLoggedIn, setIsLoggedIn }) {
         <Route path="/register/:domain/:problemCode" element={<RegistrationPage />} />
       </Routes>
     </div>
+    </RegistrationProvider>
   );
 }
 
