@@ -1,13 +1,660 @@
-body {
+/* Reset and base styles */
+* {
+  box-sizing: border-box;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+}
+body {
+  background-color: #06020a;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-weight: 500;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* App container */
+.App {
+  width: 100%;
+  height: 100vh;
+}
+
+/* Fixed header */
+.header {
+  position: fixed; /* Make the header fixed */
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: white;
+  background-color: #06020a; /* Ensure the background color covers the header */
+  padding: 10px 0;
+  z-index: 1000; /* Ensure it stays above other content */
+  box-shadow: 0 4px 6px rgba(42, 41, 41, 0.1); /* Optional shadow for better visibility */
+}
+
+.logo {
+  font-size: 2.5rem;
+  background: -webkit-linear-gradient(#ae67fa, #f49867);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Manrope", sans-serif;
+  font-optical-sizing: auto;
+}
+
+.link {
+  display: flex;
+  list-style-type: none;
+  margin-top: 10px;
+}
+
+/* Link styles */
+.link li {
+  margin-left: 50px;
+}
+
+.link li a {
+  color: #ffffff; /* Set link color to white */
+  text-decoration: none; /* Remove underline */
+  font-size: 1.5rem;
+  padding: 5px 10px;
+  transition: color 0.3s ease-in-out; /* Add transition effect for color change */
+}
+
+/* Hover state for links */
+.link li a:hover {
+  color: #c584f5; /* Change link color on hover */
+}
+
+/* Button styles */
+.register {
+  background: linear-gradient(#84eef5, #c584f5); /* Apply gradient background */
+  padding: 6px 20px;
+  margin-top: 6px;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in-out; /* Add transition effect */
+}
+
+/* Hover state for buttons */
+.register:hover {
+  background: linear-gradient(
+    #c584f5,
+    #84eef5
+  ); /* Change gradient background on hover */
+}
+
+/* Home container with padding to avoid overlap with fixed header */
+.home {
+  padding-top: 70px; /* Adjust based on the height of the header */
+}
+
+/* About section styles */
+.about h1 {
+  font-size: 4rem;
+  background: -webkit-linear-gradient(#ae67fa, #f49867);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-top: 100px;
+  margin-left: 300px;
+  font-family: "Marko One", serif;
+  font-weight: 400;
+}
+
+.about img {
+  float: right;
+  margin-right: 150px;
+  width: 400px;
+}
+
+.about p {
+  color: white;
+  margin-top: 50px;
+  margin-left: 100px;
+  width: 700px;
+  word-spacing: 20px;
+  line-height: 2;
+  font-weight: bolder;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Inknut Antiqua", serif;
+}
+
+.about button {
+  background: linear-gradient(#84eef5, #c584f5);
+  padding: 6px 20px;
+  color: white;
+  font-size: 20px;
+  border-radius: 20px;
+  border: none;
+  margin: 30px 350px;
+  display: flex;
+  align-items: center;
+}
+
+.about button::before {
+  content: url(../public/assets/discord.png);
+  margin-right: 10px;
+}
+
+/* Category bar styles */
+.category-bar {
+  margin-top: 100px;
+}
+
+h3 {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  font-family: "Inknut Antiqua", serif;
+}
+
+h2 {
+  font-size: 2.5rem;
+  background: -webkit-linear-gradient(#ae67fa, #f49867);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-family: "Marko One", serif;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+}
+
+.buttons button {
+  border-radius: 30px;
+  padding: 20px 20px;
+  cursor: pointer;
+  margin-top: 50px;
+  width: 200px;
+  background-color: #20112f;
+  border: none;
+  font-size: large;
+  background: linear-gradient(#84eef5, #c584f5);
+  font-family: "Marko One", serif;
+  border: 2px solid white;
+}
+
+/* Timeline styles */
+.imageline {
+  width: 20px;
+  margin-top: 100px;
+  margin-left: 400px;
+}
+
+.timeline .prev,
+.next {
+  padding: 10px;
+  color: white;
+  background-color: #ae67fa;
+  border: none;
+}
+
+.prev {
+  margin-left: 600px;
+}
+
+.next {
+  margin-left: 300px;
+}
+
+/* FAQ styles */
+.accortion {
+  width: 900px;
+  margin: 100px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: white;
+}
+
+.item {
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.1);
+  padding: 20px 24px;
+  padding-right: 48px;
+  cursor: pointer;
+  background-color: rgb(54, 51, 51);
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 24px;
+  row-gap: 32px;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.number {
+  font-size: 24px;
+  font-weight: 500;
+  color: #ced4da;
+}
+
+.title,
+.icon {
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.content-box {
+  grid-column: 2 / -1;
+  padding-bottom: 16px;
+  line-height: 1.6;
+}
+
+.content-box ul {
+  color: #868e96;
+  margin-left: 16px;
+  margin-top: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* OPEN STATE */
+.open {
+  border-top: 4px solid purple;
+}
+
+.open .number,
+.open .title {
+  color: purple;
+}
+
+/* Contact styles */
+.contact-us-form {
+  max-width: 700px;
+  margin: 50px auto;
+  padding: 30px;
+  border-radius: 4px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.contact-us-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.contact-us-form p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+.contact-us-form label {
+  display: block;
+  margin-bottom: 5px;
+  color: white;
+}
+
+.contact-us-form input,
+.contact-us-form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.contact-us-form button {
+  background-color: #4caf50;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.contact-us-form button:hover {
+  background-color: #3e8e41;
+}
+/* src/pages/LoginPage.css */
+
+/* Styles for the Login component */
+.login-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f4f4f9; /* Light grey background */
+  padding: 20px;
+}
+
+h2 {
+  font-size: 2rem;
+  color: #333; /* Dark grey for the heading */
+  margin-bottom: 20px;
+}
+
+.login-form {
+  background-color: #ffffff; /* White background for the form */
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); /* Soft shadow for the form */
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-size: 1rem;
+  color: #555; /* Medium grey for the label text */
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 4px;
+  border: 1px solid #ccc; /* Light grey border */
+  font-size: 1rem;
+  color: #333; /* Dark grey text */
+}
+
+input:focus {
+  border-color: #007bff; /* Blue border on focus */
+  outline: none;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 15px;
+  background-color: #007bff; /* Blue button background */
+  color: #fff; /* White button text */
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #0056b3; /* Darker blue on hover */
+}
+
+button:focus {
+  outline: none;
+}
+
+@media (max-width: 480px) {
+  .login-form {
+    padding: 20px;
+    width: 90%;
+  }
+}
+
+
+.choose-domain {
+  text-align: center;
+  padding: 20px;
+  margin-top: 80px;
+  margin-left: 10%;
+  max-width: 1200px; /* Ensures the content is centered and doesn't stretch too wide */
+}
+
+.choose-domain h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color:whitesmoke; /* Adjusted color for better readability */
+}
+
+.domain-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  justify-content: center;
+  padding: 20px; /* Adds some spacing around the grid */
+}
+
+.domain-item {
+  background-color: #fff;
+  border: 2px solid #ff5733;
+  padding: 20px;
+  font-size: 1.2rem;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 8px;
+}
+
+.domain-item:hover {
+  background-color: #ff5733;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .domain-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .domain-item {
+    font-size: 1rem;
+  }
+}
+
+/* Container styling */
+.problem-statements {
+  margin-top: 80px;
+  text-align: center;
+  padding: 20px;
+  font-family: 'Arial', sans-serif;
+  color: white;
+}
+
+/* Title styling */
+.problem-statements h1 {
+  color: #dd83ff; /* Matches the BitHack's logo color */
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  font-weight: bold;
+}
+
+/* Table styling */
+.problem-table {
+  width: 60%;
+  margin: 0 auto;
+  border-collapse: collapse;
+  background-color: #111; /* Dark background for the table */
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+/* Table header styling */
+.problem-table thead {
+  background-color: #222; /* Slightly lighter background for the header */
+}
+
+.problem-table th {
+  padding: 15px;
+  font-size: 1.2em;
+  text-transform: uppercase;
+  color: #bbb; /* Lighter color for the text in the header */
+}
+
+/* Table body styling */
+.problem-table td {
+  padding: 20px;
+  font-size: 1.1em;
+  border-bottom: 1px solid #333; /* Subtle border for rows */
+}
+
+/* Button styling */
+.view-button {
+  background-color: #0066ff; /* Bright blue button color */
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.view-button:hover {
+  background-color: #004db3; /* Darker blue on hover */
+}
+
+/* Row hover effect */
+.problem-table tbody tr:hover {
+  background-color: #333; /* Darker background on hover */
+}
+
+/* Media query for responsiveness */
+@media (max-width: 768px) {
+  .problem-table {
+    width: 100%;
+  }
+
+  .problem-table th,
+  .problem-table td {
+    padding: 10px;
+    font-size: 0.9em;
+  }
+
+  .view-button {
+    padding: 8px 16px;
+    font-size: 0.9em;
+  }
+}
+
+
+
+
+
+.problem-detail {
+  background-color: #f4f0ff; /* Light purple background */
+  color: #4b0082; /* Indigo text */
+  padding: 2rem;
+  max-width: 800px;
+  margin-top: 10%;
+  margin-left: 25%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+.problem-detail h1 {
+  font-size: 2.5rem;
+  color: #4b0082; /* Indigo color for the title */
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.problem-detail p {
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.problem-detail p strong {
+  color: #4b0082; /* Indigo for the strong text */
+}
+
+.problem-detail button {
+  background-color: #4b0082; /* Indigo button */
+  color: #fff;
+  padding: 0.75rem 2rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.problem-detail button:last-child {
+  background-color: #ff8c00; /* Orange color for the register button */
+}
+
+.problem-detail button:hover {
+  opacity: 0.8; /* Slight transparency on hover */
+}
+
+.problem-detail button:disabled {
+  background-color: #ccc; /* Greyed out when disabled */
+  cursor: not-allowed;
+}
+
+
+.registration-page {
+  background-color: #f4f0ff; /* Light purple background */
+  color: #4b0082; /* Indigo text */
+  padding: 2rem;
+  max-width: 600px;
+  margin-top: 80px;
+  margin-left: 30%;
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1); /* Light shadow */
+  text-align: center;
+}
+
+.registration-page h1 {
+  font-size: 2.2rem;
+  color: #4b0082; /* Indigo color for the title */
+  margin-bottom: 1.5rem;
+}
+
+.registration-page p {
+  font-size: 1.2rem;
+  margin: 1.5rem 0;
+}
+
+/* Form group container */
+.form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  text-align: left; /* Align text to the left */
+}
+
+/* Label styling */
+.form-group label {
+  flex: 1; /* Takes up 1 part of the available space */
+  margin-right: 1rem;
+  color: #4b0082; /* Indigo for labels */
+  font-size: 1rem;
+}
+
+/* Input field styling */
+.form-group input[type="text"],
+.form-group input[type="tel"],
+.form-group input[type="file"] {
+  flex: 2; /* Takes up 2 parts of the available space */
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #4b0082; /* Indigo border */
+  background-color: #fff;
+  color: #4b0082; /* Indigo text color */
+  font-size: 1rem;
+}
+
+/* Button styling */
+.registration-page button {
+  background-color: #4b0082; /* Indigo button */
+  color: #fff;
+  padding: 0.75rem 2rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.registration-page button:last-child {
+  background-color: #ff8c00; /* Orange color for the confirm registration button */
+}
+
+.registration-page button:hover {
+  opacity: 0.8; /* Slight transparency on hover */
 }
