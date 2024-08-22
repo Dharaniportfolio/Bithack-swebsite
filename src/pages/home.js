@@ -11,7 +11,7 @@ import ProblemStatements from "./problemstatement";
 import ProblemDetail from "./problemdetail";
 import RegistrationPage from "./registration page";
 import { RegistrationProvider } from "./registrationcontext";
-
+import ProfilePage from "./profile";
 
 function Home({ isLoggedIn, setIsLoggedIn }) {
   return (
@@ -30,6 +30,7 @@ function Home({ isLoggedIn, setIsLoggedIn }) {
         <Route path="/problems/:domain" element={<ProblemStatements />} />
         <Route path="/problem-statements/:domain/:problemCode" element={<ProblemDetail />} />
         <Route path="/register/:domain/:problemCode" element={<RegistrationPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
       </Routes>
     </div>
     </RegistrationProvider>

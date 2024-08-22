@@ -658,3 +658,96 @@ button:focus {
 .registration-page button:hover {
   opacity: 0.8; /* Slight transparency on hover */
 }
+
+
+
+
+/* Profile Form */
+.profile-form {
+  background-color: #EDE7F6; /* Light lavender background */
+  border: 1px solid #CCC; /* Light gray border */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px #111;;
+  width: 100%;
+  max-width: 450px;
+  text-align: left;
+  margin: 50px auto;
+}
+
+/* Form Labels */
+.profile-form label {
+  display: block;
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #4A0072; /* Dark purple text */
+}
+
+/* Input Fields */
+.profile-form input[type="text"] {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #4A0072; /* Dark purple border */
+  background-color: #F3E5F5; /* Very light purple for inputs */
+  color: #4A0072; /* Dark purple text */
+  font-size: 16px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+/* Save Button */
+.profile-form button {
+  width: 100%;
+  padding: 10px 0;
+  background-color: #6A1B9A; /* Purple button */
+  color: #FFFFFF; /* White text */
+  font-size: 18px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.profile-form button:hover {
+  background-color: #8E24AA; /* Darker purple on hover */
+}
+
+/* Profile Page */
+.profile-page {
+  background-color:#111; /* Dark purple background */
+  color: #FFFFFF; /* White text */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+/* Profile Info Section */
+.profile-info {
+  background-color: #EDE7F6; /* Light lavender background */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px; /* Adjust width as needed */
+}
+
+/* Table */
+.profile-info table {
+  width: 100%;
+  text-align: left;
+  color: #4A0072; /* Dark purple text */
+}
+
+.profile-info th, .profile-info td {
+  padding: 10px;
+  border-bottom: 1px solid #4A0072; /* Dark purple border */
+}
+
+.profile-info th {
+  background-color: #D1C4E9; /* Light purple for table headers */
+}
