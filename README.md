@@ -1,4 +1,4 @@
-# Getting Started with Creating Internal competition website using react
+# Getting Started with Creating Event registration application using react
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
